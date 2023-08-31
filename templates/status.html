@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div>
+
+    {% if g.user['admin'] == True %}
+
+    <div class="log">
+
+        <h4>The server this app is running on is:</h4>
+        <pre>{{ running_host }}</pre>
+
+        <h4>The operating system this app is running on is:</h4>
+        <pre>{{ running_os }}</pre>
+
+        <h4>The hardware this app is running on:</h4>
+        <pre>{{ running_hardware }}</pre>
+
+        <h4>The Python version this app is running on is:</h4>
+        <pre>{{ running_python }}</pre>
+
+    </div>
+
+    <div class="log">
+
+        <h4>Here is what is in the configuration file:</h4>
+        <pre>               Email: {{ config_data['email'] }}</pre>
+        <pre>                SMTP: {{ config_data['smtp'] }}</pre>
+        <pre>        Log Settings:</pre>
+        <pre>                Size: {{ config_data['logfilesize'][0] }}</pre>
+        <pre>            Archives: {{ config_data['logfilesize'][1] }}</pre>
+        <pre>                Logo: {{ config_data['logo'] }}</pre>
+        <pre>           Logo Size:</pre>
+        <pre>               Width: {{ config_data['logosize'][0] }}</pre>
+        <pre>              Height: {{ config_data['logosize'][1] }}</pre>
+        <pre>                Team: {{ config_data['team'] }}</pre>
+        <pre>      DB Collections:</pre>
+        {% for collection in config_data['db_coll'] %}
+        <pre>                      {{ collection }}</pre>
+        {% endfor %}
+    
+    </div>
+    
+    <div class="log">
+
+        <h4>Here is what is in the most recent log file:</h4>
+        <pre>{{ log_data }}</pre>
+
+    </div>
+
+    {% else %}
+    <label class="datalarge maint">Access denied</label>
+    {% endif %}
+
+</div>
+
+{% endblock %}

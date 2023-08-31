@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Error</title>
+    {% set cssfile = "light.css" %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename=cssfile) }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body style="
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: rgb(31, 31, 31);">
+    <script src="{{ url_for('static', filename='browsercheck.js') }}"></script>
+
+    <div style="
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap:1em;
+        background: #eee;
+        padding: 1em;">
+
+        <!-- Header -->
+        <div style="
+            background: #eee;
+            padding: 1em;
+            text-align: center;
+            ">
+
+            <H1>Error</H1>
+        
+            <h3><p>Date: <span id="datetime"></span>
+            <script>var dt = new Date(); document.getElementById("datetime").innerHTML=dt.toLocaleString();</script>
+            </p></h3>
+
+        </div>
+
+        <!-- Body -->
+
+        <div style="
+            background:rgb(215, 215, 215);
+            padding: 1em;
+            text-align: center;">
+        
+            Something has gone wrong, please check the server log.
+
+        </div>
+
+    </div>
+
+</body>
+</html>

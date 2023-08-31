@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+
+        {% if g.user.login != 'guest' and g.org._index|int() != 999999999999 %}
+        <div class="main">
+
+            <div class="buttonarea">
+                <br><br>
+                {% for collection in config_data['dbcoll'] %}
+                <a href="/colls?data={{ collection }}" tabindex="1">
+                    <button class="datalarge save">{{ collection }}</button>
+                </a>
+                {% endfor %}
+                <br><br>
+
+            </div>
+
+        </div>
+        {% endif %}
+
+{% endblock %}

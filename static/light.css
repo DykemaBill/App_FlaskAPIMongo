@@ -1,0 +1,290 @@
+/* Page settings */
+body{
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: rgb(31, 31, 31);
+}
+a{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(71, 46, 147);
+  transition: 0.3s;
+}
+a:hover{
+  color: rgb(109, 154, 172);
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap:1em;
+  }
+.wrapper > div{
+  background: #eee;
+  padding: 1em;
+}
+
+/* Header area */
+.header{
+  background: #eee;
+  padding: 1em;
+  text-align: center;
+}
+/* Logo in header */
+.header > div > a > img{
+  position: absolute;
+  top: 0px;
+  left: 2em;
+  width: 300px;
+  padding: 1em;
+}
+
+/* Darkmode Icon */
+.darkmode-icon{
+  position: absolute;
+  z-index: 95;
+  overflow: hidden;
+  top: 1em;
+  right: 72px;
+}
+
+/* Main area */
+.main{
+  padding: 1em;
+  text-align: center;
+}
+
+/* Button area */
+.buttonarea{
+  background:rgb(215, 215, 215);
+  display: flex;
+  justify-content: center;
+}
+.buttonarea button{
+  margin: 1em;
+}
+
+/* Footer area */
+.foot{
+  padding: 1em;
+  text-align: center;
+}
+
+/* Data entry form */
+.formarea{
+  background:rgb(215, 215, 215);
+  padding:1em;
+  /* max-width: 1000px; */
+}
+.formarea > pre{
+  overflow-x: auto;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Records area */
+.recordsarea{
+  background:rgb(215, 215, 215);
+}
+
+/* Log area */
+.log {
+  font-size: 16px;
+  text-align: left;
+  padding: 2em;
+}
+.log > pre{
+  overflow-x: auto;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Login page */
+.login{
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* Login grid */
+.loginpasschange{
+  display: grid;
+  grid-template-columns: 300px 360px;
+}
+.loginpasschange > div {
+  text-align: left;
+}
+
+/* Password validation message */
+#passmessage {
+  display: none;
+  background: rgb(180, 180, 180);
+  color: #000;
+  position: relative;
+  padding: 1em 3em;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+#passmessage p {
+  font-size: 18px;
+}
+
+/* Checkmarks as fields are correctly filled out */
+input + span {
+  padding-right: 30px;
+}
+input:invalid+span:after {
+  position: absolute; content: '✖';
+  padding-left: 5px;
+}
+input:valid+span:after {
+  position: absolute;
+  content: '✓';
+  padding-left: 5px;
+}
+
+/* Green checkmark */
+.valid {
+  color: #357f37;
+}
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: '✓';
+}
+/* Red "x" icon */
+.invalid {
+  color: #922424;
+}
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: '✖';
+}
+/* Request page */
+.request{
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  min-width: 85%;
+  max-width: 85%;
+}
+.requestsummary{
+  border: none;
+  color: white;
+  padding: 5px 7px;
+  text-align: left;
+  text-decoration: none;
+  display: inline;
+  font-size: 14px;
+  cursor: pointer;
+  max-width: 85%;
+}
+
+.currSign:before{ 
+    content: '$'; 
+}
+
+/* Config page */
+.datalarge{
+  border: none;
+  color: rgb(245, 245, 245);
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.prod{
+  background-color: rgb(80, 181, 83);
+}
+.maint{
+  background-color: rgb(217, 79, 79);
+}
+.new{
+  background-color: rgb(158, 166, 158);
+}
+.warn{
+  background-color: rgb(199, 185, 25);
+}
+.control{
+  background-color: rgb(103, 42, 104);
+}
+.select_no{
+  color: rgb(190, 190, 190);
+  background-color: rgb(154, 158, 105);
+  border-radius: 8px;
+}
+.select_yes{
+  background-color: rgb(164, 175, 12);
+  border-radius: 8px;
+}
+.saved{
+  color: rgb(190, 190, 190);
+  background-color: rgb(124, 130, 137);
+  border-radius: 12px;
+}
+.save{
+  background-color: rgb(31, 86, 163);
+  border-radius: 12px;
+}
+.create{
+  background-color: rgb(103, 42, 104);
+  border-radius: 12px;
+}
+.del{
+  background-color: rgb(195, 124, 9);
+  border-radius: 12px;
+}
+.dis{
+  color: rgb(190, 190, 190);
+  background-color: rgb(183, 147, 90);
+  border-radius: 12px;
+}
+.dbcheck{
+  border: none;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.dbcheck_no{
+  color: rgb(190, 190, 190);
+  background-color: rgb(136, 123, 145);
+}
+.dbcheck_yes{
+  background-color: rgb(149, 101, 184);
+}
+
+/* Safari needs this or placeholder text is not readable */
+::placeholder{
+  color: rgb(141, 220, 222);
+}
+
+/* Media queries */
+
+/* Logo */
+/* Hide */
+@media (max-width: 740px) {
+  .logoimg{
+    display: none;
+  }
+}

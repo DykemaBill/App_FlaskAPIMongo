@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flask / API / MongoDB</title>
+    {% if g.user['darkmode'] == True %}
+        {% set cssfile = "dark.css" %}
+    {% else %}
+        {% set cssfile = "light.css" %}
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename=cssfile) }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="shortcut icon" media="all" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <!-- DataTenant copyright 2023 -->
+    <script src="{{ url_for('static', filename='browsercheck.js') }}"></script>
+
+    <div class="wrapper">
+
+        <!-- Header -->
+        <div class="header">
+
+            <!-- Dark mode icon -->
+            <span class="darkmode-icon">
+                <a href="/darkmode?requestingurl={{request.path}}">
+                    <button class="requestsummary create" tabindex="-1">&#9770;</button>
+                </a>
+            </span>
+
+            <div>
+                <a href="/"><img src="{{ g.logo }}" class="logoimg" style="width:{{ g.logosize[0] }}px;height:{{ g.logosize[1] }}px;"></a>
+            </div>
+
+            <h1>Python Flask / API / MongoDB Example</h1>
+            {% if pagetitle is defined %}<h3>{{ pagetitle }}</h3>{% endif %}
+        
+            {% if g.user._index != 999999999999 %}
+            <h4><p><span id="datetimeviewing"></span>
+            <script>let dt = new Date(); document.getElementById("datetimeviewing").innerHTML=dt.toLocaleString();</script>
+            - {{ g.user.login }} ({% if g.org._index|int() != 999999999999 %}{{ g.org.name }}{% else %}None{% endif %})</p></h4>
+            {% endif %}
+
+        </div>
+
+        <!-- Body -->
+        {% block body %}{% endblock %}
+
+        <!-- Footer -->
+        <div class="foot">
+
+            {% if not request.path.startswith('/log') %}
+                <div class="formarea">
+                    <br>
+                    <!-- NEED TO FIX THE FOLLOWING LOGIC -->
+                    {% if (g.user.login != 'guest') or (notnewinstall) %}
+                    <a href="/loginpassword">Password</a> | <a href="/logout">Logout</a><br><br>
+                    {% elif notnewinstall == false %}
+                    <a href="/loginnew">Create Your First Account</a><br><br>
+                    {% else %}
+                    <a href="/login">Login</a><br><br>
+                    {% endif %}
+                </div>
+            {% endif %}
+            
+            <h3>Contact {{ g.team }} for questions at <a href="mailto: {{ g.email }}">Support</a> {% if g.user['admin'] == True %}(<a href="/status">Status and Logs</a>){% endif %}</h3>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
